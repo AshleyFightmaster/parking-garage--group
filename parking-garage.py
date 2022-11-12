@@ -1,16 +1,17 @@
 class Pgarage():
 
     def __init__(self):
-       self.amount_of_tickets = [10] # Ashley
-       self. parking_spaces = [10] # Ashley
+
+       self.amount_of_tickets = [1,2,3,4,5,6,7,8,9,10] # Ashley
+       self. parking_spaces = [False, False, False, False, False, False, False, False, False, False] # Ashley
        self.currentTicket = { 'paid': False}
 
+
     def takeTicket(self): # Ashley
-        return ('Here is your ticket. Have a nice day!')   
-        self.amount_of_tickets -= 1 
-        self.parking_spaces -= 1 
-
-
+        ticket_number = self.amount_of_tickets.pop()
+        self.parking_spaces[ticket_number - 1] = True
+        return (f'You have ticket number {ticket_number}.') 
+        
     def payforParking(self):
         payment = int(input (f"Hello the cost for parking is $20 dollars"))
 

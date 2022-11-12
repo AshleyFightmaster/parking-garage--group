@@ -4,16 +4,16 @@ class Pgarage():
        
         pass
 
-    def takeTicket():
+    def takeTicket(self):
         pass
 
-    def payforParking():
+    def payforParking(self):
         pass
 
-    def leaveGgarage():
+    def leaveGgarage(self):
         pass
 
-    def runner():
+    def runner(self):
         pass
 
     

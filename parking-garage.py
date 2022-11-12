@@ -24,8 +24,14 @@ class Pgarage():
 
         pass
 
-    def leaveGgarage(self):
-        pass
+    def leaveGarage(self):  # Nick
+        if self.currentTicket['paid'] == True:
+            return 'Thank you, have nice day!'
+        else:
+            self.payForParking()
+            return 'Thank you, have nice day!'
+        self.parkingSpaces += 1
+        self.tickets += 1
 
     def runner(self): # Ashley
         user_ = input('Welcome to my garage. Please start by taking a ticket. (take a ticket) ').lower() 

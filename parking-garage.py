@@ -3,7 +3,7 @@ class Pgarage():
     def __init__(self):
        self.amount_of_tickets = [10] # Ashley
        self. parking_spaces = [10] # Ashley
-       self.currentTicket = { 'paid'}
+       self.currentTicket = { 'paid': False}
 
     def takeTicket(self): # Ashley
         return ('Here is your ticket. Have a nice day!')   

@@ -7,40 +7,57 @@ class Pgarage():
 
 
     def takeTicket(self): # Ashley
-        ticket_number = self.amount_of_tickets.pop()
-        self.parking_spaces[ticket_number - 1] = True
-        return (f'You have ticket number {ticket_number}.') 
+        self.ticket_in_use.insert(0,self.amount_of_tickets.pop())
+        self.ticket_in_use.sort()
+        self.parking_spaces[self.ticket_in_use[0] - 1] = True
+        self.ticket_Taken['parked'] = True
+        self.currentTicket['paid'] = False
+        print(f'You have ticket number {self.ticket_in_use[0]}.') 
         
-    def payforParking(self):
-        payment = int(input (f"Hello the cost for parking is $20 dollars"))
 
-        if payment >= 20:
-            self.currentTicket['paid'] == True
+    def payforParking(self):
+        ticket = input('What ticket would you like to pay for?')
+        if ticket in self.ticket_in_use:
+            
+            payment = int(input(f"Hello the cost for parking is $20 dollars"))
+            if payment >= 20 :
+
+                print(f'Ticket number {self.ticket_in_use[-1]} has been paid!')
+
+                self.amount_of_tickets.append(self.ticket_in_use.pop())
+                self.amount_of_tickets.sort()
+
+                self.currentTicket['paid'] = True
+            
+            
 
         else:
-            print(f'I am sorry that is not enough.')
-            self.currentTicket['paid'] == False
-
-        pass
+            print(f'I am sorry that is not enough or not valid')
+            self.currentTicket['paid'] = False
 
     def leaveGarage(self):  # Nick
         if self.currentTicket['paid'] == True:
-            return 'Thank you, have nice day!'
-        else:
-            self.payForParking()
-            return 'Thank you, have nice day!'
-        self.parkingSpaces += 1
-        self.tickets += 1
+
+            self.parking_spaces[self.ticket_number - 1] = False
+
+
+            print('Thank you, have nice day!')
+        elif self.currentTicket['paid'] == False:
+            self.payforParking()
+            self.parking_spaces[self.ticket_number - 1] = False
+            print( 'Thank you, have nice day!')
+
 
     def runner(self): # Ashley
-        user_ = input('Welcome to my garage. Please start by taking a ticket. (take a ticket) ').lower() 
-        if user_ == 'take a ticket': 
-            self.takeTicket() 
-            self.payforParking()
-            self.leaveGarage()
-        else: 
-            print('I\'m sorry that is an invalid input. Please try again.') 
+        
+        while True:
+            user_ = input('Welcome to my garage. Please start by taking a ticket. (take a ticket) ').lower() 
+            if user_ == 'take': 
+                self.takeTicket() 
+            elif user_ == 'pay' and self.ticket_Taken['parked'] == True:
 
-person = Pgarage()
-
-person.runner
+                self.payforParking()
+            elif user_ == 'leave' and self.ticket_Taken['parked'] == True:
+                self.leaveGarage()
+            else:
+                print('I\'m sorry that is an invalid input. Please try again.')

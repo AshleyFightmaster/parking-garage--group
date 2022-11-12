@@ -1,8 +1,11 @@
 class Pgarage():
 
     def __init__(self):
+
        self.amount_of_tickets = [1,2,3,4,5,6,7,8,9,10] # Ashley
        self. parking_spaces = [False, False, False, False, False, False, False, False, False, False] # Ashley
+       self.currentTicket = { 'paid': False}
+
 
     def takeTicket(self): # Ashley
         ticket_number = self.amount_of_tickets.pop()
@@ -13,18 +16,22 @@ class Pgarage():
         payment = int(input (f"Hello the cost for parking is $20 dollars"))
 
         if payment >= 20:
-            self.tickets += 1
-            self.parking_spaces += 1
-            self.paid_ticket[paidfor] == True
+            self.currentTicket['paid'] == True
 
         else:
             print(f'I am sorry that is not enough.')
-            self.paid_ticket[] == False
+            self.currentTicket['paid'] == False
 
         pass
 
-    def leaveGgarage(self):
-        pass
+    def leaveGarage(self):  # Nick
+        if self.currentTicket['paid'] == True:
+            return 'Thank you, have nice day!'
+        else:
+            self.payForParking()
+            return 'Thank you, have nice day!'
+        self.parkingSpaces += 1
+        self.tickets += 1
 
     def runner(self): # Ashley
         user_ = input('Welcome to my garage. Please start by taking a ticket. (take a ticket) ').lower() 

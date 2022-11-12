@@ -15,8 +15,6 @@ class Pgarage():
         payment = int(input (f"Hello the cost for parking is $20 dollars"))
 
         if payment >= 20:
-            self.tickets += 1
-            self.parking_spaces += 1
             self.currentTicket['paid'] == True
 
         else:

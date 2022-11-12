@@ -1,7 +1,6 @@
 class Pgarage():
 
     def __init__(self):
-
        self.amount_of_tickets = [1,2,3,4,5,6,7,8,9,10] # Ashley
        self. parking_spaces = [False, False, False, False, False, False, False, False, False, False] # Ashley
        self.currentTicket = { 'paid': False}
@@ -38,8 +37,10 @@ class Pgarage():
         if user_ == 'take a ticket': 
             self.takeTicket() 
             self.payforParking()
-            self.leaveGgarage()
+            self.leaveGarage()
         else: 
             print('I\'m sorry that is an invalid input. Please try again.') 
 
-    
+person = Pgarage()
+
+person.runner

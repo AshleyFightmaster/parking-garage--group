@@ -13,9 +13,11 @@ class Pgarage():
         if payment >= 20:
             self.tickets += 1
             self.parking_spaces += 1
-            
+            self.paid_ticket[paidfor] == True
+
         else:
             print(f'I am sorry that is not enough.')
+            self.paid_ticket[paidfor] == False
 
         pass
 

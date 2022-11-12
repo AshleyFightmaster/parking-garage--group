@@ -17,7 +17,7 @@ class Pgarage():
 
         else:
             print(f'I am sorry that is not enough.')
-            self.paid_ticket[paidfor] == False
+            self.paid_ticket[] == False
 
         pass
 
